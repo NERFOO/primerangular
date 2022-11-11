@@ -1,0 +1,39 @@
+<div>
+    <h1>Ejemplo directivas angular</h1>
+
+    <h2>Numero de deportes : {{sports.length}}</h2>
+
+    <!-- DIRECTIVA IF -->
+    <div *ngIf="sports.length < 7; else condicionelse">
+        <p style="color:red;">Tiene menos de 7 deportes</p>
+    </div>
+    <ng-template #condicionelse>
+        <h2 style="color:green">Tenemos mas de 7 deportes</h2>
+    </ng-template>
+
+
+    <h4 style="color:blueviolet">El primer deporte es: {{sports[0]}}</h4>
+
+    <!-- DIRECTIVA FOR -->
+    <ul>
+        <li *ngFor="let depor of sports; let i = index">Deporte {{i}}: {{depor}}</li>
+    </ul>
+
+    <div *ngFor="let num of numeros" [style.color]="num % 2 == 0 ? 'orange' : 'red'">
+        <ul>
+            <li>{{num}}</li>
+        </ul>
+    </div>
+    <hr>
+    <div *ngFor="let num of numeros" [class.par]="num % 2 == 0" [class.impar]="num % 2 == 1">
+        <ul>
+            <li>{{num}}</li>
+        </ul>
+    </div>
+    <hr>
+    <div *ngFor="let num of numeros" [ngClass]="{ par2 : num % 2 == 0, impar2 : num % 2 == 1 }">
+        <ul>
+            <li>{{num}}</li>
+        </ul>
+    </div>
+</div>
