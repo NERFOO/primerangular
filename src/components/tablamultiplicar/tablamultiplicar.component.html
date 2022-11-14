@@ -1,0 +1,16 @@
+<div>
+    <h1>Tabla de multiplicar</h1>
+
+    <form #tablaForm="ngForm">
+        <label>Introduce un numero</label>
+        <input type="number" name="cajanumero" #cajanumero>
+
+        <button (click)="tablaMultiplicar()">Calcular</button>
+    </form>
+
+    <div *ngIf="suma.length > 0">
+        <ul *ngFor="let sum of suma">
+            <li>{{sum}}</li>
+        </ul>
+    </div>
+</div>
